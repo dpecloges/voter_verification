@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/prefs_category_settings"
+        android:key="pref_key_url_settings">
+
+        <EditTextPreference
+            android:key="pref_key_api_url"
+            android:title="@string/pref_api_url_title"
+            android:summary="@string/pref_api_url_summary"
+            android:defaultValue="@string/default_api_url"/>
+
+        <EditTextPreference
+            android:key="pref_key_update_url"
+            android:title="@string/pref_update_url_title"
+            android:summary="@string/pref_update_url_summary"
+            android:defaultValue="@string/default_update_url"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

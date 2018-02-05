@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_voter_verification"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/title_voter_verification" />
+
+    <item
+        android:id="@+id/navigation_election_data"
+        android:icon="@android:drawable/ic_menu_upload"
+        android:title="@string/title_election_data" />
+
+</menu>

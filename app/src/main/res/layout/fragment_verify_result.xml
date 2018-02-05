@@ -1,0 +1,497 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ots.dpel.android.VerifyResultFragment">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="50dp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+                <!-- Has voted warning message -->
+                <RelativeLayout
+                    android:id="@+id/hasVotedLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:background="@drawable/custom_layout_border"
+                    android:padding="8dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/textViewVoteMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/imageViewTick"
+                        android:layout_toRightOf="@+id/imageViewTick"
+                        android:text="@string/voter_has_voted_message"
+                        android:textAlignment="center"
+                        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewVoteDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/textViewVoteMessage"
+                        android:layout_alignStart="@+id/textViewVoteMessage"
+                        android:layout_below="@+id/textViewVoteMessage"
+                        android:text="@string/vote_date"
+                        android:textAlignment="center"
+                        android:textAppearance="@android:style/TextAppearance.Material.Small" />
+
+                    <TextView
+                        android:id="@+id/textViewVoteLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textViewVoteDate"
+                        android:layout_toEndOf="@+id/imageViewTick"
+                        android:layout_toRightOf="@+id/imageViewTick"
+                        android:text="@string/vote_location"
+                        android:textAlignment="center"
+                        android:textAppearance="@android:style/TextAppearance.Material.Small" />
+
+                    <ImageView
+                        android:id="@+id/imageViewTick"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_alignBottom="@+id/textViewVoteLocation"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        app:srcCompat="@android:drawable/checkbox_on_background" />
+
+                </RelativeLayout>
+
+
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow android:padding="4dp">
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewElectoralNumLabel"
+                        android:layout_width="match_parent"
+                        android:text="@string/electoral_number_short"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewElectoralNumValue"
+                        android:layout_width="match_parent"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewVoterVerificationNumberLabel"
+                        android:text="@string/verification_number" />
+
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewVoterVerificationNumberLabelValue"
+                        android:textStyle="bold"
+                        android:text="N/A"/>
+
+                </TableRow>
+
+                <TableRow android:padding="4dp">
+
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewSurnameLabel"
+                        android:text="@string/last_name"
+                        android:layout_gravity="left"/>
+
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewSurnameValue"
+                        android:textStyle="bold"
+                        android:layout_gravity="left"/>
+
+                    <TextView
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewNameLabel"
+                        android:text="@string/first_name"
+                        android:layout_gravity="left"/>
+
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewNameValue"
+                        android:textStyle="bold"
+                        android:layout_gravity="left"/>
+
+                </TableRow>
+
+                <TableRow android:padding="4dp">
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewFatherNameLabel"
+                        android:layout_width="match_parent"
+                        android:text="@string/father_s_name" />
+
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewFatherNameValue"
+                        android:layout_width="match_parent"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewMotherNameLabel"
+                        android:layout_width="match_parent"
+                        android:text="@string/mother_s_name" />
+
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewMotherNameValue"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+                <TableRow android:padding="4dp">
+
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewBirthDateLabel"
+                        android:text="@string/date_of_birth" />
+
+
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewBirthDateValue"
+                        android:layout_width="match_parent"
+                        android:textStyle="bold" />
+
+                    <!-- Preregistration label-->
+                    <TextView
+                        android:id="@+id/txtViewIsPreregisteredLabel"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:text="@string/is_registered"
+                        />
+
+                    <!-- Preregistration value-->
+                    <TextView
+                        android:id="@+id/txtViewIsPreregisteredValue"
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:textStyle="bold"
+                        android:text="N/A"
+                        />
+
+                    <!-- Has voted in first round label-->
+                    <!--<TextView
+                        android:id="@+id/txtViewRoundOneVotedLabel"
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:paddingStart="4dp"
+                        android:text="@string/has_voted_in_round_one"
+                        android:visibility="visible" />-->
+
+                    <!-- Has voted in first round value-->
+                    <!--<TextView
+                        android:id="@+id/txtViewRoundOneVotedValue"
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:text="N/A"
+                        android:textStyle="bold"
+                        android:visibility="visible" />-->
+
+                </TableRow>
+
+                <TableRow android:padding="4dp">
+
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewMunicipalityLabel"
+                        android:text="@string/municipality" />
+
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewMunicipalityValue"
+                        android:textStyle="bold"
+                        android:text="N/A"/>
+
+                    <TextView
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewDimotologioLabel"
+                        android:text="@string/population_reg" />
+
+                    <TextView
+                        android:paddingEnd="4dp"
+                        android:paddingRight="4dp"
+                        android:id="@+id/txtViewDimotologioValue"
+                        android:textStyle="bold"
+                        android:text="N/A"/>
+
+                </TableRow>
+
+            </TableLayout>
+
+            <!-- contact info -->
+            <LinearLayout
+                android:id="@+id/voterContactInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkboxIsMember"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="12dp"
+                        android:layout_weight="1"
+                        android:text="@string/is_member"
+                        android:textAlignment="textStart" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/textInputLayoutPayment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/editTextPayment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="7"
+                            android:hint="@string/payment_amount"
+                            android:inputType="numberDecimal"
+                            android:maxLength="9"
+                            android:textAppearance="@android:style/TextAppearance.Material.Small.Inverse" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/selectIdSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="12dp"
+                        android:layout_weight="1"
+                        android:dropDownWidth="match_parent"
+                        android:textAlignment="textEnd" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/editTextIdValue"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/id_number"
+                            android:inputType="textCapCharacters|text"
+                            android:maxLength="30"
+                            android:textAppearance="@android:style/TextAppearance.Material.Small.Inverse" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/editTextStreet"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/label_city"
+                            android:inputType="textPostalAddress|textCapCharacters"
+                            android:textAppearance="@android:style/TextAppearance.Material.Small.Inverse" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.2">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/editTextStreetNum"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/label_street_num"
+                            android:maxLength="9"
+                            android:inputType="text|textCapCharacters"
+                            android:textAppearance="@android:style/TextAppearance.Material.Small.Inverse" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/editTextPostcode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/label_post_code"
+                            android:maxLength="9"
+                            android:inputType="text|textCapCharacters"
+                            android:textAppearance="@android:style/TextAppearance.Material.Small.Inverse" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/editTextCity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/city"
+                            android:inputType="text|textCapCharacters"
+                            android:textAppearance="@android:style/TextAppearance.Material.Small.Inverse" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/editTextStreetCountry"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/country"
+                            android:inputType="text|textCapCharacters"
+                            android:textAppearance="@android:style/TextAppearance.Material.Small.Inverse" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/editTextEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/email"
+                            android:inputType="textEmailAddress"
+                            android:textAppearance="@android:style/TextAppearance.Material.Small.Inverse" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/editTextPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/telephone"
+                            android:textAppearance="@android:style/TextAppearance.Material.Small.Inverse" />
+
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/commitButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/verify_voter" />
+
+                <Button
+                    android:id="@+id/backToSearchButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/back_to_search" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

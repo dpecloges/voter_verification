@@ -1,0 +1,4 @@
+<resources>
+    <string name="default_api_url" translatable="false">http://prselec.ots.gr:8080/dpelapi/</string>
+    <string name="default_update_url" translatable="false">http://prselec.ots.gr:80/apk/</string>
+</resources>
